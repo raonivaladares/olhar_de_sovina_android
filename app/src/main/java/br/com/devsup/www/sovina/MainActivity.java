@@ -12,6 +12,11 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    private EditText editTextQuantityProduct01;
+    private EditText editTextValueProduct01;
+    private EditText editTextQuantityProduct02;
+    private EditText editTextValueProduct02;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,35 +24,31 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(br.com.devsup.www.sovina.R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(br.com.devsup.www.sovina.R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final EditText editTextQuantityProduct01 = (EditText) findViewById(br.com.devsup.www.sovina.R.id.edit_text_quantity_product_01);
-                final EditText editTextValueProduct01 = (EditText) findViewById(br.com.devsup.www.sovina.R.id.edit_text_value_product_01);
-                final EditText editTextQuantityProduct02 = (EditText) findViewById(br.com.devsup.www.sovina.R.id.edit_text_quantity_product_02);
-                final EditText editTextValueProduct02 = (EditText) findViewById(br.com.devsup.www.sovina.R.id.edit_text_value_product_02);
+        editTextQuantityProduct01 = (EditText) findViewById(br.com.devsup.www.sovina.R.id.edit_text_quantity_product_01);
+        editTextValueProduct01 = (EditText) findViewById(br.com.devsup.www.sovina.R.id.edit_text_value_product_01);
+        editTextQuantityProduct02 = (EditText) findViewById(br.com.devsup.www.sovina.R.id.edit_text_quantity_product_02);
+        editTextValueProduct02 = (EditText) findViewById(br.com.devsup.www.sovina.R.id.edit_text_value_product_02);
+    }
 
-                final double quantityProduct01 = Double.valueOf(editTextQuantityProduct01.getText().toString());
-                final double valueProduct01 = Double.valueOf(editTextValueProduct01.getText().toString());
-                final double quantityProduct02 = Double.valueOf(editTextQuantityProduct02.getText().toString());
-                final double valueProduct02 = Double.valueOf(editTextValueProduct02.getText().toString());
+    public void onClickFloatButton (View view) {
+        final double quantityProduct01 = Double.valueOf(editTextQuantityProduct01.getText().toString());
+        final double valueProduct01 = Double.valueOf(editTextValueProduct01.getText().toString());
+        final double quantityProduct02 = Double.valueOf(editTextQuantityProduct02.getText().toString());
+        final double valueProduct02 = Double.valueOf(editTextValueProduct02.getText().toString());
 
-                final double x = (quantityProduct02 * valueProduct01) / quantityProduct01;
+        final double x = (quantityProduct02 * valueProduct01) / quantityProduct01;
 
-                final String resultText;
+        final String resultText;
 
-                if(valueProduct02 > x) {
-                    resultText = "Produto 01 mais barato";
-                } else if (valueProduct02 == x) {
-                    resultText = "Produto com mesmo valor";
-                } else {
-                    resultText = "Produto 02 mais barato";
-                }
-                Snackbar.make(view, resultText, Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        if(valueProduct02 > x) {
+            resultText = getString(R.string.result_product_01);
+        } else if (valueProduct02 < x) {
+            resultText = getString(R.string.result_product_02);
+        } else {
+            resultText = getString(R.string.result_product_draw);
+        }
+        Snackbar.make(view, resultText, Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
     }
 
     @Override

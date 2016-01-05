@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Sovina</string>
     <string name="action_settings">Settings</string>
+
+    <string name="result_product_01">Produto 01 mais barato</string>
+    <string name="result_product_02">Produto com mesmo valor</string>
+    <string name="result_product_draw">Produto com mesmo valor</string>
 </resources>
