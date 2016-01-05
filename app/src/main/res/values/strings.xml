@@ -7,8 +7,8 @@
     <string name="result_product_draw">Produto com mesmo valor</string>
 
     <string name="field_validation_title">Atenção!</string>
-    <string name="field_validation_product_01">Campo produto 01 em branco</string>
-    <string name="field_validation_value_product_01">Campo valor produto 01 em branco</string>
-    <string name="field_validation_product_02">Campo produto 02 em branco</string>
-    <string name="field_validation_value_product_02">Campo valor produto 02 em branco</string>
+    <string name="field_validation_product_01">Campo quantidade do produto 01 em branco</string>
+    <string name="field_validation_value_product_01">Campo valor do produto 01 em branco</string>
+    <string name="field_validation_product_02">Campo quantidade do produto 02 em branco</string>
+    <string name="field_validation_value_product_02">Campo valor do produto 02 em branco</string>
 </resources>
